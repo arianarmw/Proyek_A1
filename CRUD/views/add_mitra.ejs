@@ -1,0 +1,127 @@
+<%- include('layout/header') %>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-primary">
+                    <h3 class="text-light">Add Mitra</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/addMitra" method="post" id="add-form" enctype="multipart/form-data">
+                        <!-- LOGO -->
+                        <div class="mb-3">
+                            <label for="logo_restoran" class="form-label">Pilih Gambar</label>
+                            <input class="form-control form-control-lg" type="file" name="logo_restoran"/>
+                        </div>
+
+                        <!-- ALAMAT -->
+                        <div class="mb-3">
+                            <label for="alamat-restoran">Alamat Restoran</label>
+                            <div class="input-group has-validation">
+                            <input type="text" name="alamat-restoran" class="form-control form-control-lg" placeholder="Input Alamat" required/>
+                            </div>
+                        </div>
+
+                        <!-- PRODUK -->
+                        <div class="mb-3">
+                            <label for="alamat-restoran">Produk</label>
+                            <input type="text" name="alamat-restoran" class="form-control form-control-lg" placeholder="Input Produk" required/>
+                        </div>
+
+                        <!-- RATING -->
+                        <label for="rating-restoran">Rating Restoran</label>    
+                        <select class="form-select form-select-lg mb-3" aria-label="Default select example" required>
+                            <option selected disabled>Pilih Rating</option>
+                            <option value="1">1/5</option>
+                            <option value="2">2/5</option>
+                            <option value="3">3/5</option>
+                            <option value="4">4/5</option>
+                            <option value="5">5/5</option>
+                          </select>
+
+                        <!-- KATEGORI -->
+                        <label for="kategori-restoran">Kategori Restoran</label>   
+                        <select class="form-select form-select-lg mb-3" aria-label="Default select example" required>
+                            <option selected disabled>Pilih Kategori</option>
+                            <option value="1">Indonesian</option>
+                            <option value="2">Chinese</option>
+                            <option value="3">Western</option>
+                        </select>
+
+                        <!-- BERKAS RESTORAN -->
+                        <div class="mb-3">
+                            <label for="berkas_restoran" class="form-label">Pilih Berkas</label>
+                            <input class="form-control form-control-lg" type="file" name="berkas_restoran" required/>
+                        </div>
+
+                        <!-- FASILITAS RESTORAN -->
+                        <label for="berkas_restoran" class="form-label">Fasilitas Restoran</label>
+                        <div class="form-horizontal">
+                            <div class="form-group form-group-lg mb-3">
+                                <div class="col-md-6">
+                                    <textarea class="form-control" rows="3" placeholder="1. Free Wi-Fi" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STATUS RESTORAN -->
+                        <label for="rating-restoran">Status Restoran</label>    
+                        <select class="form-select form-select-lg mb-3" aria-label="Default select example" required>
+                            <option selected disabled>Choose Status</option>
+                            <option value="1">Aktif</option>
+                            <option value="2">Tidak Aktif</option>
+                          </select>
+
+                        <!-- Jam Buka -->
+                        <div class="form-control form-control-lg mb-3">
+                            <label>Jam Buka</label>
+                            <div class="input-group has-validation">
+                            <input type="time" placeholder="H : M" id="jam_buka">
+                            </div>
+                        </div>
+                        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+                        <script>
+                            config = {
+                                enableTime: true,
+                                noCalendar: true,
+                                dateFormat: "H:i",
+                            }
+                        flatpickr("input[type=time]", config);
+                        </script>
+
+                        <!-- Jam Tutup -->
+                        <div class="form-control form-control-lg mb-3">
+                            <label>Jam Tutup</label>
+                            <div class="input-group has-validation">
+                            <input type="time" placeholder="H : M" id="jam_tutup">
+                            </div>
+                        </div>
+                        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+                        <script>
+                            config = {
+                                enableTime: true,
+                                noCalendar: true,
+                                dateFormat: "H:i",
+                            }
+                        flatpickr("input[type=time]", config);
+                        </script>
+
+                        <!-- Submit Button -->
+                        <div class="mb-3 d-grid">
+                            <input type="submit" name="submit" value="Submit" class="btn btn-primary btn-lg" required/>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('layout/footer') %>
